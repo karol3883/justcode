@@ -1,0 +1,12 @@
+#controllers:
+#    resource: '../src/Controller/'
+#    type: annonation
+
+#kernel:
+#    resource: ../src/Kernel.php
+#    type: annonation
+
+homepage:
+    path: [/homepage, /]
+    # the controller value has the format 'controller_class::method_name'
+    controller: App\Controller\HomepageController::homepage
