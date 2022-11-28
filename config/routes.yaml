@@ -1,23 +1,8 @@
-#controllers:
-#    resource: '../src/Controller/'
-#    type: annonation
+controllers:
+    resource: '../src/Controller/'
+    type:     annotation
+    prefix:   /
 
-#kernel:
-#    resource: ../src/Kernel.php
-#    type: annonation
-
-#homepage:
-#    path: [/homepage, /]
-#    # the controller value has the format 'controller_class::method_name'
-#    controller: App\Controller\HomepageController::homepage
-
-homepagetest:
-    path: /homepage
-    # the controller value has the format 'controller_class::method_name'
-    controller: App\Controller\HomepageController::homepage
-
-
-ziobro:
-  path: /ziobro
-  # the controller value has the format 'controller_class::method_name'
-  controller: App\Controller\HomepageController::offer
+kernel:
+    resource: ../src/Kernel.php
+    type: annotation
