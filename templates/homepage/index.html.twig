@@ -1,43 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomepageController!{% endblock %}
+{% block title %}Programowanie - PHP - JS - SQL{% endblock %}
 
 {% block body %}
-    <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
-    </div>
-    <div class="container flex flex-row mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
-        <div class="">
-            <article class="overflow-hidden rounded-lg shadow transition hover:shadow-lg dark:shadow-gray-700/25">
-
-                <div class="bg-white p-4 dark:bg-gray-900 sm:p-6">
-                    <time
-                            datetime="2022-10-10"
-                            class="block text-xs text-gray-500 dark:text-gray-400"
-                    >
-                        10th Oct 2022
-                    </time>
-
-                    <a href="#">
-                        <h3 class="mt-0.5 text-lg text-gray-900 dark:text-white">
-                            How to position your furniture for positivity
-                        </h3>
-                    </a>
-
-                    <p
-                            class="mt-2 text-sm leading-relaxed text-gray-500 line-clamp-3 dark:text-gray-400"
-                    >
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae
-                        dolores, possimus pariatur animi temporibus nesciunt praesentium dolore
-                        sed nulla ipsum eveniet corporis quidem, mollitia itaque minus soluta,
-                        voluptates neque explicabo tempora nisi culpa eius atque dignissimos.
-                        Molestias explicabo corporis voluptatem?
-                    </p>
-                </div>
-            </article>
-        </div>
-    </div>
-
-    <div class="container flex flex-row mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+    <div class="container flex flex-row mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 mt-4">
         <div class="overflow-hidden bg-white shadow sm:rounded-lg">
             <div class="px-4 py-5 sm:px-6">
                 <h3 class="text-lg font-medium leading-6 text-gray-900">O mnie</h3>
@@ -63,7 +29,9 @@
                     </div>
                     <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                         <dt class="text-sm font-medium text-gray-500">Technologie</dt>
-                        <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">Fugiat ipsum ipsum deserunt culpa aute sint do nostrud anim incididunt cillum culpa consequat. Excepteur qui ipsum aliquip consequat sint. Sit id mollit nulla mollit nostrud in ea officia proident. Irure nostrud pariatur mollit ad adipisicing reprehenderit deserunt qui eu.</dd>
+                        <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
+                            Fugiat ipsum ipsum deserunt culpa aute sint do nostrud anim incididunt cillum culpa consequat. Excepteur qui ipsum aliquip consequat sint. Sit id mollit nulla mollit nostrud in ea officia proident. Irure nostrud pariatur mollit ad adipisicing reprehenderit deserunt qui eu.
+                        </dd>
                     </div>
                     <div class="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                         <dt class="text-sm font-medium text-gray-500">Attachments</dt>
@@ -102,7 +70,87 @@
     </div>
 
 
+    <div class="container flex flex-row mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 mt-4">
+        <div class="overflow-hidden bg-white shadow sm:rounded-lg w-full">
+            <div class="px-4 py-5 sm:px-6">
+                <h3 class="text-lg font-medium leading-6 text-gray-900">O mnie</h3>
+                <p class="mt-1 max-w-2xl text-sm text-gray-500">Personal details and application.</p>
+            </div>
+            <div class="border-t border-gray-200">
+            </div>
+            <div class="border-t border-gray-200">
+                <dl>
+                    <div class="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                        <dt class="text-sm font-medium text-gray-500">Technologie</dt>
+                        <dd class="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
+                            <div class="max-w-2xl mx-auto p-16 rounded">
+
+                                <div id="accordion-collapse" data-accordion="collapse">
+
+                                    <h2 class="js-accordion_element" id="accordion-collapse-heading-1" data-id="1">
+                                        <button type="button" class="flex items-center justify-between w-full p-5 font-medium text-left text-gray-500 border border-b-0 border-gray-200 rounded-t-xl focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800" data-accordion-target="#accordion-collapse-body-1" aria-expanded="true" aria-controls="accordion-collapse-body-1">
+                                            <span>Backend</span>
+                                            <svg data-accordion-icon class="w-6 h-6 rotate-180 shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                                        </button>
+                                    </h2>
+                                    <div id="accordion-collapse-body-1" class="hidden" aria-labelledby="accordion-collapse-heading-1">
+                                        <div class="p-5 font-light border border-b-0 border-gray-200 dark:border-gray-700 dark:bg-gray-900">
+                                            <p class="mb-2 text-gray-500 dark:text-gray-400">
+                                                PHP, Symfony, Laravel, Codeigniter
+{#                                                Flowbite is an open-source library of interactive components built on top of Tailwind CSS including buttons, dropdowns, modals, navbars, and more.#}
+
+                                            </p>
+                                        </div>
+                                    </div>
+
+
+                                    <script>
+                                        const accordionElements = document.getElementsByClassName('js-accordion_element');
+
+                                        [...accordionElements].forEach((item) => {
+                                            console.log(item);
+                                            item.addEventListener('click', () => {
+                                                // item.classList.toggle('ring-2')
+                                                const dataId = item.dataset.id;
+                                                const accordionDiv = document.getElementById(`accordion-collapse-body-${dataId}`);
+                                                accordionDiv.classList.toggle('hidden');
+                                                console.log(item.dataset.id)
+                                                console.log(accordionDiv)
+                                                console.log('click');
+                                            })
+                                        })
+                                        console.log(accordionElements);
+                                    </script>
+
+{#                                    <h2 id="accordion-collapse-heading-2">#}
+{#                                        <button type="button" class="flex items-center focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 justify-between p-5 w-full font-medium border border-gray-200 dark:border-gray-700 border-b-0 text-left text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800" data-accordion-target="#accordion-collapse-body-2" aria-expanded="false" aria-controls="accordion-collapse-body-2">#}
+{#                                            <span>Is there a Figma file available?</span>#}
+{#                                            <svg data-accordion-icon class="w-6 h-6 shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>#}
+{#                                        </button>#}
+{#                                    </h2>#}
+{#                                    <div id="accordion-collapse-body-2" class="hidden" aria-labelledby="accordion-collapse-heading-2">#}
+{#                                        <div class="p-5 border border-gray-200 dark:border-gray-700 border-b-0">#}
+{#                                            <p class="mb-2 text-gray-500 dark:text-gray-400">Flowbite is first conceptualized and designed using the#}
+{#                                                Figma software so everything you see in the library has a design equivalent in our Figma file.</p>#}
+{#                                            <p class="text-gray-500 dark:text-gray-400">Check out the <a href="https://flowbite.com/figma/"#}
+{#                                                                                                         target="_blank" class="text-blue-600 dark:text-blue-500 hover:underline">Figma design system</a>#}
+{#                                                based on the utility classes from Tailwind CSS and components from Flowbite.</p>#}
+{#                                        </div>#}
+{#                                    </div>#}
+
+                                </div>
+
+                            </div>
+                        </dd>
+                    </div>
+                </dl>
+            </div>
+        </div>
+    </div>
+
+
     <div style="height: 1500px;">
+
 
     </div>
 {% endblock %}

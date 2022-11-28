@@ -18,22 +18,17 @@
             <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                 <div class="flex flex-shrink-0 items-center">
 
-                    <img class="block h-12 w-auto lg:hidden" src="/assets/new-logo-no-background.png" alt="Your Company">
-                    <img class="hidden h-14 w-auto lg:block" src="/assets/new-logo-no-background.png" alt="Your Company">
+                    <img class="block h-12 w-auto lg:hidden" src="/assets/images/png/new-logo-no-background.png" alt="Your Company" width="640px" height="360px">
+                    <img class="hidden h-14 w-auto lg:block" src="/assets/images/png/new-logo-no-background.png" alt="Your Company" width="640px" height="360px">
 
 {#                    <img class="block h-8 w-auto lg:hidden" src="/assets/logo-no-background.png" alt="Your Company">#}
 {#                    <img class="hidden h-8 w-auto lg:block" src="/assets/logo-no-background.png" alt="Your Company">#}
                 </div>
+
                 <div class="hidden sm:ml-6 sm:block self-center justify-self-end">
                     <div class="flex space-x-4 ">
-                        <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-                        <a href="#" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium" aria-current="page">Dashboard</a>
-
-                        <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Team</a>
-
-                        <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Projects</a>
-
-                        <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Calendar</a>
+                        <a href="/" class="{% if app.request.pathinfo == '/' %}bg-gray-900 text-cyan-200{% else %} text-gray-300{% endif %} hover:text-cyan-200 px-3 py-2 rounded-md text-sm font-bold " aria-current="page">Dashboard</a>
+                        <a href="/contact" class="{% if app.request.pathinfo == '/contact' %}bg-gray-900 text-cyan-200{% endif %} font-bold text-gray-300 hover:bg-gray-700 hover:text-cyan-200 px-3 py-2 rounded-md text-sm">Kontakt</a>
                     </div>
                 </div>
             </div>

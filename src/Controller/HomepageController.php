@@ -32,9 +32,41 @@ class HomepageController extends AbstractController
     }
 
 
-    #[Route('/oferta', name:'app_offer')]
-    public function offer(): Response
+    #[Route('/oferta', name:'app_offer_2')]
+    public function offer2(): Response
     {
-        return $this->render('homepage/offer.html.twig');
+        return $this->render('homepage/offer2.html.twig', [
+            'using_technologies' => $this->getUsedTechnologies(),
+        ]);
+    }
+
+    private function getUsedTechnologies()
+    {
+        return [
+            [
+                'name' => 'PHP',
+                'description' => ' Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                                Ipsam cumque recusandae dolorum porro, quasi sunt
+                                                necessitatibus dolorem ab laudantium vel.'
+            ],
+            [
+                'name' => 'SQL',
+                'description' => ' Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                                Ipsam cumque recusandae dolorum porro, quasi sunt
+                                                necessitatibus dolorem ab laudantium vel.'
+            ],
+            [
+                'name' => 'Docker',
+                'description' => ' Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                                Ipsam cumque recusandae dolorum porro, quasi sunt
+                                                necessitatibus dolorem ab laudantium vel.'
+            ],
+            [
+                'name' => 'GitLab',
+                'description' => ' Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                                Ipsam cumque recusandae dolorum porro, quasi sunt
+                                                necessitatibus dolorem ab laudantium vel.'
+            ],
+        ];
     }
 }
