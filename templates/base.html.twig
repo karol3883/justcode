@@ -4,7 +4,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta charset="UTF-8">
         <meta name="robots" content="index, follow, all">
-        <meta name="googlebot" content="index, follow, all">
+        <meta name="description" content="A description of the page">
         <title>{% block title %}Welcome!{% endblock %}</title>
         <link rel="icon" href="/assets/favicon.ico"> 
         {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
@@ -28,7 +28,9 @@
         <link href="/assets/output.css" rel="stylesheet" >
     </head>
     <body>
+
         {% include 'partials/navbar.html.twig' %}
+        {% include 'partials/messages.html.twig' %}
 {#        {% include 'partials/banner.html.twig' %}#}
 {#        {% include 'partials/content.html.twig' %}#}
         {% block body %}{% endblock %}

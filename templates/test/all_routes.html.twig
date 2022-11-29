@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Programowanie - PHP - JS - SQL{% endblock %}
+
+{% block body %}
+    <div class="container py-16 md:py-20" id="work">
+        <h2 class="text-center font-header text-4xl font-semibold uppercase text-cyan-500 sm:text-5xl lg:text-6xl">
+            My work experience
+        </h2>
+
+        <ul class="w-48 text-sm font-medium rounded-lg border border-gray-200">
+            {% for route in routes %}
+                <li class="py-2 px-4 w-full rounded-t-lg border-b border-gray-200">{{ route.path }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+{% endblock %}

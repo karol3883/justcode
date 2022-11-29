@@ -9,10 +9,9 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class HomepageController extends AbstractController
 {
-    #[Route('/', name:'app_index')]
+    #[Route('/', name:'app_index', methods: ['GET'])]
     public function index(): Response
     {
-
         return $this->render('homepage/index.html.twig', [
            'controller_name' =>'HomepageController',
             'accordion_data' => $this->getAccordionData(),
