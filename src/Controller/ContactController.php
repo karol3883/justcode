@@ -16,6 +16,8 @@ use Symfony\Component\Validator\Validation;
 
 //use Symfony\Component\Mime\Email;
 
+use App\Service\Validator\ValidatorInterface;
+
 class ContactController extends AbstractController
 {
     #[Route('/contact', name: 'app_contact')]
@@ -40,41 +42,17 @@ class ContactController extends AbstractController
 
     #[Route('/sendEmail', name: 'app_contact_send_email', methods: ['POST'])]
 //    public function sendEmail(MailerInterface $mailer): Response
-    public function sendEmail(Request $request, RouterInterface $router): Response
+    public function sendEmail(Request $request, ValidatorInterface $validator): Response
     {
         $input = $request->request->all();
-        $validator = Validation::createValidator();
-        $constraint = new Constraints\Collection([
-            'email' => [
-                new Constraints\Email(['message' => 'Email jest nieporpawny']),
-                new Constraints\Length(['min' => 5, 'max' => 100]),
-            ],
-            'name' => [
-                new Constraints\Regex('/[a-z]/i', 'Bład - imie może zawierać tylko litery'),
-                new Constraints\Length(
-                    [
-                        'min' => 3,
-                        'max' => 100,
-                        'minMessage' => 'Imię - wpisz minimum 3 znaki!'
-                    ]
-                )
-            ],
-            'message' => new Constraints\Length(['min' => 10, 'max' => 500]),
-        ]);
-
-        $violations = $validator->validate($input, $constraint);
-
-        if (count($violations) !== 0) {
-            foreach($violations as $violation) {
-//                $this->addFlash('danger', "{$violation->getPropertyPath()}: {$violation->getMessage()}");
-                $this->addFlash('danger', "{$violation->getMessage()}");
-            }
-
+        if (!$validator->isValid(['email', 'name', 'message'], $input)) {
             return $this->redirect('contact');
         }
 
-        $this->addFlash('success', 'Poprawnie wysłano email');
+        $this->addFlash('success', 'Email został wysłany poprawnie!');
+
         return $this->redirectToRoute('app_index');
+
         $email = (new Email())
             ->from('karol3883@karol3883.smallhost.pl')
             ->to('karol3883@gmail.com')
