@@ -12,8 +12,10 @@ class HomepageController extends AbstractController
     #[Route('/', name:'app_index')]
     public function index(): Response
     {
+
         return $this->render('homepage/index.html.twig', [
            'controller_name' =>'HomepageController',
+            'accordion_data' => $this->getAccordionData(),
         ]);
     }
 
@@ -66,6 +68,41 @@ class HomepageController extends AbstractController
                 'description' => ' Lorem ipsum dolor sit amet consectetur adipisicing elit.
                                                 Ipsam cumque recusandae dolorum porro, quasi sunt
                                                 necessitatibus dolorem ab laudantium vel.'
+            ],
+        ];
+    }
+
+
+    private function getAccordionData(): array
+    {
+
+        return [
+            [
+                'title' => 'Backend',
+                'description' => 'Backendowo wykorzystuję głownie PHP oraz jego frameworki',
+                'skills' => [
+                    'PHP',
+                    'Laravel',
+                    'Symfony',
+                ]
+            ],
+            [
+                'title' => 'Frontend',
+                'description' => 'Short desc',
+                'skills' => [
+                    'vanilla',
+                    'vue',
+                    'react',
+                ]
+            ],
+            [
+                'title' => 'Database',
+                'description' => 'Short desc',
+                'skills' => [
+                    'MySQl',
+                    'PostgreSql',
+                    'PL/SQL',
+                ]
             ],
         ];
     }
