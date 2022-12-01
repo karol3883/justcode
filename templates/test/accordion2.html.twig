@@ -1,0 +1,129 @@
+{% extends 'base.html.twig' %} {% block title %}Skontaktuj się z nami!{% endblock %} {% block body %}
+
+<div class="max-w-2xl mx-auto p-8 rounded">
+    <div id="accordion-collapse" data-accordion="collapse">
+        {% for signle_accordion in accordion_data %}
+            {% if loop.first %}
+                {% set additionalClass = 'rounded-t-xl' %}
+            {% endif %}
+
+            <div>
+                <h2 class="js-accordion_element" id="accordion-collapse-heading-{{ loop.index }}" data-id="{{ loop.index }}">
+                    <button type="button" class="{{ additionalClass }} flex items-center justify-between w-full p-5 font-bold text-left border {% if not loop.last %}border-b-0{% endif %} border-gray-600 bg-gray-400 focus:bg-cyan-200 focus:ring-2 focus:ring-cyan-600 focus:bg-gray-700 hover:text-white border-gray-700 hover:bg-gray-700 focus:text-white" data-accordion-target="#accordion-collapse-body-1" aria-expanded="true" aria-controls="accordion-collapse-body-1">
+                        <span> {{ signle_accordion.title }}</span>
+                        <svg data-accordion-icon class="w-6 h-6 rotate-180 shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                    </button>
+                </h2>
+{#                <div id="accordion-collapse-body-{{ loop.index }}" class="h-0" aria-labelledby="accordion-collapse-heading-1">#}
+                    <div id="collapse-body-{{ loop.index }}" class="h-0 hidden font-light border {% if not loop.last %}border-b-0{% endif %} border-gray-200 border-gray-700 bg-gray-100 ">
+                        <p class="mb-2">
+                            {{ signle_accordion.description }}
+                        </p>
+
+                        {% if signle_accordion.skills is not empty %}
+                            <ul class="w-48 text-sm font-medium rounded-lg border border-gray-200">
+                                {% for skill in signle_accordion.skills %}
+                                    <li class="py-2 px-4 w-full rounded-t-lg border-b border-gray-200">{{ skill }}</li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+                    </div>
+{#                </div>#}
+            </div>
+
+            {% if loop.first %}
+                {% set additionalClass = '' %}
+            {% endif %}
+        {% endfor %}
+
+
+        <h2 class="js-accordion_element2" id="accordion-collapse-heading" data-id="1">
+            <button id="BAR_BTN" type="button" class="flex items-center justify-between w-full p-5 font-bold text-left border border-gray-600 bg-gray-400 focus:bg-cyan-200 focus:ring-2 focus:ring-cyan-600 focus:bg-gray-700 hover:text-white border-gray-700 hover:bg-gray-700 focus:text-white transition-all" data-accordion-target="#accordion-collapse-body-1" aria-expanded="true" aria-controls="accordion-collapse-body-1">
+                <span> </span>
+                <svg data-accordion-icon class="w-6 h-6 rotate-180 shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+            </button>
+        </h2>
+
+        <div id="accordion-collapse-body-1" class="hidden scale-y-0 origin-top duration-300  font-light border border-gray-200 border-gray-700 bg-gray-100" aria-labelledby="accordion-collapse-heading-1">
+                <p class="mb-2">
+                </p>
+            asdasdasdasdasdasdasdasdasdasdasdasd
+                <ul class="w-48 text-sm font-medium rounded-lg border border-gray-200">
+                    <li class="py-2 px-4 w-full rounded-t-lg border-b border-gray-200">
+                        asdasdasd
+                    </li>
+                </ul>
+        </div>
+
+        <h2 class="js-accordion_element2" id="accordion-collapse-heading" data-id="2">
+            <button type="button" class="flex items-center justify-between w-full p-5 font-bold text-left border border-gray-600 bg-gray-400 focus:bg-cyan-200 focus:ring-2 focus:ring-cyan-600 focus:bg-gray-700 hover:text-white border-gray-700 hover:bg-gray-700 focus:text-white transition-all" data-accordion-target="#accordion-collapse-body-1" aria-expanded="true" aria-controls="accordion-collapse-body-1">
+                <span>Show me</span>
+                <svg data-accordion-icon class="w-6 h-6 rotate-180 shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+            </button>
+        </h2>
+        <div id="accordion-collapse-body-2" class="translate-x-0 font-light border border-gray-200 border-gray-700 bg-gray-100 transform origin-top duration-300 scale-y-0" aria-labelledby="accordion-collapse-heading-1">
+            <p class="mb-2">
+                asdksadjsajk
+            </p>
+
+            <ul class="w-48 text-sm font-medium rounded-lg border border-gray-200">
+                <li class="py-2 px-4 w-full rounded-t-lg border-b border-gray-200">
+                    asdasdasd
+                </li>
+            </ul>
+        </div>
+
+
+        <div class="h-100 bg-gray-400 transform duration-300 hover:bg-cyan-500 translate-x-4 scale-y-0">
+xD
+        </div>
+        <script>
+            const accordionElements = document.getElementsByClassName('js-accordion_element2');
+
+            [...accordionElements].forEach((item, id) => {
+                item.addEventListener('click', () => {
+                    if (id + 1 === [...accordionElements].length) {
+                        const btn = item.getElementsByTagName('button');
+                        const closestbtn = [...btn].pop();
+                        if (closestbtn) {
+                            closestbtn.classList.toggle('border-b-0');
+                        }
+                    }
+
+                    const svg = item.getElementsByTagName('svg');
+                    const closestSvg = [...svg].pop();
+                    if (closestSvg) {
+                        closestSvg.classList.toggle('rotate-180');
+                    }
+
+                    const dataId = item.dataset.id;
+                    const accordionDiv = document.getElementById(`accordion-collapse-body-${dataId}`);
+                    if (accordionDiv.classList.contains('hidden')) {
+
+                        accordionDiv.classList.toggle('hidden');
+                        setTimeout(() => {
+                                console.log(123)
+                                accordionDiv.classList.toggle('h-0');
+                                accordionDiv.classList.toggle('p-5');
+                                accordionDiv.classList.toggle('scale-y-0');
+                                accordionDiv.classList.toggle('translate-x-0');
+                            },
+                            10, );
+                    } else {
+                        accordionDiv.classList.toggle('h-0');
+                        accordionDiv.classList.toggle('p-5');
+                        accordionDiv.classList.toggle('scale-y-0');
+                        accordionDiv.classList.toggle('translate-x-0');
+                        setTimeout(() => {
+                                accordionDiv.classList.toggle('hidden');
+                            },
+                            300, );
+                    }
+
+                })
+            });
+
+        </script>
+    </div>
+</div>
+{% endblock %}

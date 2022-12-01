@@ -27,11 +27,51 @@
                     </div>
                 </div>
             </div>
+
             {% if loop.first %}
                 {% set additionalClass = '' %}
             {% endif %}
         {% endfor %}
+
+
+        <nav>
+            <div>
+                <div>
+                    <button id="BAR_BTN" class="
+        px-10 py-2 mt-10 mx-10 w-1/4 hover:bg-green-300 bg-green-200 transition-all">
+                        button
+                    </button>
+                </div>
+                {#    <div id="mobileMenu"#}
+                {#        class="mx-10 p-5 border-4 border-black overflow-hidden text-xl w-1/4 transform origin-top duration-300 scale-y-0#}
+                {#"#}
+                {#    >#}
+                {#        nananana#}
+                {#    </div>#}
+
+                <div id="mobileMenu" class="mx-10 p-5 border-4 border-black overflow-hidden text-xl w-1/4 transform origin-top duration-300 scale-y-0" aria-labelledby="accordion-collapse-heading-1">
+                    <div class="p-5 font-light border border-gray-200 border-gray-700 bg-gray-100">
+                        some extra text nanan
+                    </div>
+                </div>
+            </div>
+        </nav>
+
         <script>
+            // nanan
+
+            const bar_btn = document.getElementById('BAR_BTN');
+            const mobileMenu2 = document.getElementById('mobileMenu')
+
+            bar_btn.addEventListener('click',function()
+                {
+                    mobileMenu2.classList.toggle('transform');
+                    mobileMenu2.classList.toggle('scale-y-0');
+                }
+            );
+
+
+            // nana
             const accordionElements = document.getElementsByClassName('js-accordion_element');
 
             [...accordionElements].forEach((item, id) => {

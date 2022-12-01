@@ -54,6 +54,9 @@ const colors = require('tailwindcss/colors')
 module.exports = {
   content: ["./templates/**/*.twig"],
   safelist: ["active"],
+  variants: {
+    transform: ['hover', 'focus','click']
+  },
   theme: {
     fontFamily: {
       header: ["Raleway", "sans-serif"],

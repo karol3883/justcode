@@ -71,14 +71,12 @@ class HomepageController extends AbstractController
         ];
     }
 
-
     private function getAccordionData(): array
     {
-
         return [
             [
                 'title' => 'Backend',
-                'description' => 'Backendowo wykorzystuję głownie PHP oraz jego frameworki',
+                'description' => 'Short desc',
                 'skills' => [
                     'PHP',
                     'Laravel',
@@ -87,16 +85,18 @@ class HomepageController extends AbstractController
             ],
             [
                 'title' => 'Frontend',
-                'description' => 'Short desc',
+                'description' => 'Tworzac frontend wykorzystuję wszelakiego rodzaju technologie',
                 'skills' => [
-                    'vanilla',
-                    'vue',
-                    'react',
+                    'Vanilla.js',
+                    'Vue.js',
+                    'React.js',
+                    'Bootstarp',
+                    'Tailwind',
                 ]
             ],
             [
-                'title' => 'Database',
-                'description' => 'Short desc',
+                'title' => 'Bazy danych',
+                'description' => 'Pracuję w oparciu o różne silniki bazodanowe',
                 'skills' => [
                     'MySQl',
                     'PostgreSql',

@@ -32,7 +32,7 @@ class TestController extends AbstractController
     #[Route('/accordion', name: 'app_accordion')]
     public function accordion(): Response
     {
-        return $this->render('test/accordion.html.twig', [
+        return $this->render('test/accordion2.html.twig', [
             'controller_name' => 'TodoController',
             'accordion_data' => $this->getAccordionData(),
         ]);
@@ -84,11 +84,13 @@ class TestController extends AbstractController
             ],
             [
                 'title' => 'Frontend',
-                'description' => 'Short desc',
+                'description' => 'Tworzac frontend wykorzystuję wszelakiego rodzaju technologie',
                 'skills' => [
-                    'vanilla',
-                    'vue',
-                    'react',
+                    'Vanilla.js',
+                    'Vue.js',
+                    'React.js',
+                    'Bootstarp',
+                    'Tailwind',
                 ]
             ],
             [
