@@ -3,7 +3,7 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta charset="UTF-8">
-        <meta name="robots" content="index, follow, all">
+{#        <meta name="robots" content="index, follow, all">#}
 
         {{ render(controller( 'App\\Controller\\MetaTagsController::index', {path_info: app.request.getPathInfo})) }}
         <title>{% block title %}Welcome!{% endblock %}</title>
@@ -18,12 +18,12 @@
 
     </head>
     <body>
-
+        {{ render(controller( 'App\\Controller\\NavigationController::index', {pathInfo: app.request.getPathInfo})) }}
         {% include 'partials/navbar.html.twig' %}
         {% include 'partials/messages.html.twig' %}
         {% include 'partials/banner.html.twig' %}
 {#        {% include 'partials/content.html.twig' %}#}
         {% block body %}{% endblock %}
-        {% include 'partials/footer.html.twig' %}
+{#        {% include 'partials/footer.html.twig' %} #}
     </body>
 </html>

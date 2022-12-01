@@ -5,6 +5,7 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+//use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
 use App\Service\Validator\ValidatorInterface;
@@ -20,6 +21,16 @@ class ContactController extends AbstractController
             ]
         );
     }
+
+
+//    #[Route('/sendEmail', name: 'app_contact_send_email', methods: ['POST'])]
+//    public function sendEmail(Request $request): Response
+//    {
+//        dd($request->request->all());
+//        return $this->render('contact/index.html.twig', [
+//            'controller_name' => 'ContactController',
+//        ]);
+//    }
 
     #[Route('/sendEmail', name: 'app_contact_send_email', methods: ['POST'])]
 //    public function sendEmail(MailerInterface $mailer): Response
