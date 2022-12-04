@@ -19,7 +19,7 @@
     </head>
     <body>
         {{ render(controller( 'App\\Controller\\NavigationController::index', {pathInfo: app.request.getPathInfo})) }}
-        {% include 'partials/navbar.html.twig' %}
+{#        {% include 'partials/navbar.html.twig' %}#}
         {% include 'partials/messages.html.twig' %}
         {% include 'partials/banner.html.twig' %}
 {#        {% include 'partials/content.html.twig' %}#}

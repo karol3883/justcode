@@ -1,0 +1,61 @@
+version: "3.4"
+
+services:
+  justcode:
+    depends_on:
+      - justcode-db
+    container_name: justcode
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+      target: dev
+    restart: always
+    ports:
+      - '80:80'
+    volumes:
+      - ./:/var/www/justcode
+      - ./docker/php/docker-php-ext-xdebug.ini:/usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+    tty: true
+    privileged: true
+    cap_add:
+      - SYS_PTRACE
+
+#  rabbitmq:
+#    image: rabbitmq:3-management-alpine
+#    container_name: rabbitmq-dev
+#    environment:
+#      RABBITMQ_ERLANG_COOKIE: ${RABBITMQ_ERLANG_COOKIE}
+#      RABBITMQ_DEFAULT_USER: ${RABBITMQ_DEFAULT_USER}
+#      RABBITMQ_DEFAULT_PASS: ${RABBITMQ_DEFAULT_PASS}
+#    ports:
+#      - 5672:5672
+#      - 15672:15672
+
+  justcode-db:
+    image: postgres:13.3
+    container_name: justcode-db
+    environment:
+      POSTGRES_DB: ${DATABASE_NAME}
+      POSTGRES_USER: ${DATABASE_USER}
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
+      TZ: Europe/Warsaw
+      PGTZ: Europe/Warsaw
+    restart: always
+    ports:
+      - '5432:5432'
+    volumes:
+      - database:/var/lib/postgresql/data
+    tty: true
+    privileged: true
+    cap_add:
+      - SYS_PTRACE
+
+#  justcode-node:
+#    build:
+#      dockerfile: ./docker/node/Dockerfile
+#      context: .
+#      target: dev
+#    volumes:
+#      - ./:/var/www/justcode
+volumes:
+  database:
