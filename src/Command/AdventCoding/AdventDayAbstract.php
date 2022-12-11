@@ -18,7 +18,8 @@ abstract class AdventDayAbstract extends Command
     {
         $this->stepOne();
         $this->stepTwo();
-        dd(123);
+
+        dd(" ");
     }
 
     private function getFilePath(): string
