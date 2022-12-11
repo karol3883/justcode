@@ -80,10 +80,9 @@ class Day7Command extends AdventDayAbstract
         $this->test = $pathElements;
         dump(array_sum($pathElements));
         dd(1);
-        dd($newArray);
+        dd($newArray); 
 //        dd($compareArray);
     }
-
     private function unsetMoreThanLimit($pathElements)
     {
         uksort($pathElements, function($a, $b) {
