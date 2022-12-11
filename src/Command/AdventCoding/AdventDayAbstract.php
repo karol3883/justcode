@@ -16,6 +16,7 @@ abstract class AdventDayAbstract extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
+//        ini_set('display_errors', 1);
         $this->stepOne();
         $this->stepTwo();
 

@@ -54,35 +54,101 @@ class Day7Command extends AdventDayAbstract
         }
 
 
-        $pathElements = $this->unsetMoreThanLimit($pathElements);
-        $compareArray = [];
+        uksort($pathElements, function($a, $b) {
+            return strlen($b) <=> strlen($a);
+        });
+//        $pathElements = $this->unsetMoreThanLimit($pathElements);
+        $needed = 30000000 - (70000000 - array_sum($pathElements));
         foreach ($pathElements as $path => $value) {
-            if ($pathElements[$path] != $value) {
-                $compareArray[$path] = [
-                    '$value' => $value,
-                    '$pathElements[$path]' => $pathElements[$path],
-                ];
-            }
 
             $pathArray = explode('*', $path);
             array_pop($pathArray);
             $parentPathArray = $pathArray;
             $parentPath = implode('*', $parentPathArray);
+
             if (isset($pathElements[$parentPath])) {
                 if ($pathElements[$parentPath] + $pathElements[$path] < 100000) {
-                    $test = $pathElements[$parentPath] + $pathElements[$path];
-                    $pathElements[$parentPath] = $test;
+//                    $test = $pathElements[$parentPath] + $pathElements[$path];
+//                    $pathElements[$parentPath] = $test;
                 }
+//                $test = $pathElements[$parentPath] + $pathElements[$path];
+//                $pathElements[$parentPath] += $test;
             }
 
         }
 
-        $this->test = $pathElements;
+        dd($pathElements);
+        $correctvalues = [];
+        foreacH($pathElements as $key => $value) {
+            if ($value >= $needed) {
+                $correctvalues[] = $value;
+            }
+        }
+
+        sort($correctvalues);
+        dump("Needed space: $needed");
+        unset($pathElements['/']);
         dump(array_sum($pathElements));
-        dd(1);
-        dd($newArray); 
-//        dd($compareArray);
     }
+
+    public function stepTwo(): void
+    {
+        $input = $this->getInputFileContent();
+
+        foreach ($input as $l) {
+            $tok = explode(' ', $l);
+            if ($tok[0] == '$') {
+                if ($tok[1] == 'cd') {
+                    $path = match ($tok[2]) {
+                        '/' => 'root/',
+                        '..' => (strrpos($path, '/', -1) === false ?
+                            'root/' :
+                            substr($path, 0, strrpos($path, '/', -1) - 1)
+                        ),
+                        default => $path . $tok[2] . '/'
+                    };
+                }
+            } else {
+                if ($tok[0] !== 'dir') {
+                    if (isset($tok[1])) {
+                        $dirs[$path][$tok[1]] = $tok[0];
+                    }
+                }
+            }
+        }
+        $totals = [];
+        foreach ($dirs as $path => $files) {
+            $pathwalk = '';
+            foreach (explode('/', $path) as $segment) {
+                if ($segment == '') continue;
+                $pathwalk = $pathwalk . '/' . $segment;
+                if (array_key_exists($pathwalk, $totals)) {
+                    $totals[$pathwalk] += array_sum($files);
+                } else {
+                    $totals[$pathwalk] = array_sum($files);
+                }
+            }
+        }
+        $p1 = 0;
+        foreach ($totals as $total) {
+            if ($total <= 100000) $p1 += $total;
+        }
+        echo "Sum of total sizes of directories under 100K: $p1\n";
+
+        $p2 = $totals['/root'];
+        $needed = 30000000 - (70000000 - $p2);
+
+        $keyneeded = '';
+        foreach ($totals as $key => $total) {
+            if ($total < $p2 && $total >= $needed){
+                $p2 = $total;
+                $keyneeded = $key;
+            }
+        }
+        echo "Size of directory to delete: $p2\n";
+        echo "Test: $keyneeded\n";
+    }
+
     private function unsetMoreThanLimit($pathElements)
     {
         uksort($pathElements, function($a, $b) {
@@ -109,89 +175,4 @@ class Day7Command extends AdventDayAbstract
 
         return $pathElements;
     }
-
-    private function addValueToParent(string $path)
-    {
-
-    }
-
-    public function stepTwo(): void
-    {
-        $filesystem = [];
-        $here = ["root"];
-
-        foreach($this->getInputFileContent() as $line) {
-            list($start, $cmd, $dir) = array_pad(explode(' ', $line), 3, null);
-            if ($start === '$') {
-                $lastCmd = $cmd;
-                if ($cmd === 'cd') {
-                    if ($dir === "/") {
-                        $here = ["root"];
-                    } elseif ($dir === "..") {
-                        array_pop($here);
-                    } else {
-                        array_push($here, $dir);
-                    }
-                }
-            } else {
-                if($start !== 'dir') {
-                    array_push($filesystem, implode('/', $here) . '/' . $start);
-                }
-            }
-        }
-
-        $totals = [];
-
-        foreach ($filesystem as $path) {
-            $savePath = '';
-            $path = explode('/', $path);
-            foreach ($path as $segment) {
-                $savePath = $savePath . '/' . $segment;
-                if (!is_numeric($segment)) {
-                    if(array_key_exists($savePath, $totals)) {
-                        $totals[$savePath] += (int) end($path);
-                    } else {
-                        $totals[$savePath] = (int) end($path);
-                    }
-                }
-            }
-        }
-
-        $totalsLessThan100000 = array_filter($totals, function($total) {
-            return $total <= 100000;
-        });
-
-
-        uksort($totalsLessThan100000, function($a, $b) {
-            return strlen($b) <=> strlen($a);
-        });
-
-        $newArray = [];
-        foreach($totalsLessThan100000 as $path => $value) {
-            $path = str_replace('/','*', $path);
-            $path = str_replace('root','/', $path);
-
-//            $path = "/$path";
-            $newArray[$path] = $value;
-        }
-        $this->test2 = $newArray;
-        $answer = array_sum($totalsLessThan100000);
-
-        $this->test2 = $newArray;
-        $this->test();
-        dd($answer);
-    }
-    private function test()
-    {
-        $testval = 0;
-        foreach($this->test as $path => $value) {
-            if($this->test2["*$path"] !== $value) {
-                dump("$path - myval = $value; theirval = {$this->test2["*$path"]}");
-                $testval += $this->test2["*$path"];
-            }
-        }
-        dump($testval);
-    }
-    private array $test = [];
-    private array $test2 = [];
 }
