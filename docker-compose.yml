@@ -2,8 +2,8 @@ version: "3.4"
 
 services:
   justcode:
-    depends_on:
-      - justcode-db
+#    depends_on:
+#      - justcode-db
     container_name: justcode
     build:
       context: .
@@ -31,24 +31,24 @@ services:
 #      - 5672:5672
 #      - 15672:15672
 
-  justcode-db:
-    image: postgres:13.3
-    container_name: justcode-db
-    environment:
-      POSTGRES_DB: ${DATABASE_NAME}
-      POSTGRES_USER: ${DATABASE_USER}
-      POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
-      TZ: Europe/Warsaw
-      PGTZ: Europe/Warsaw
-    restart: always
-    ports:
-      - '5432:5432'
-    volumes:
-      - database:/var/lib/postgresql/data
-    tty: true
-    privileged: true
-    cap_add:
-      - SYS_PTRACE
+#  justcode-db:
+#    image: postgres:13.3
+#    container_name: justcode-db
+#    environment:
+#      POSTGRES_DB: ${DATABASE_NAME}
+#      POSTGRES_USER: ${DATABASE_USER}
+#      POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
+#      TZ: Europe/Warsaw
+#      PGTZ: Europe/Warsaw
+#    restart: always
+#    ports:
+#      - '5432:5432'
+#    volumes:
+#      - database:/var/lib/postgresql/data
+#    tty: true
+#    privileged: true
+#    cap_add:
+#      - SYS_PTRACE
 
 #  justcode-node:
 #    build:
@@ -57,5 +57,5 @@ services:
 #      target: dev
 #    volumes:
 #      - ./:/var/www/justcode
-volumes:
-  database:
+#volumes:
+#  database:
