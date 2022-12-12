@@ -106,35 +106,38 @@ COPY --from=install-backend-dependencies /var/www/justcode/vendor ./vendor
 RUN npm ci
 
 
-FROM node:14 as build-assets
-
-WORKDIR /app
-
-COPY package*.json ./
-COPY webpack.config.js ./
-
-COPY --from=install-backend-dependencies /var/www/justcode/vendor ./vendor
-COPY --from=install-frontend-dependencies /var/www/justcode/node_modules ./node_modules
-COPY src ./src
-COPY assets ./assets
-RUN echo 'NODE_ENV=production' >> .env
-
-RUN npm run build
+#FROM node:14 as build-assets
+#
+#WORKDIR /app
+#
+#COPY package*.json ./
+#COPY webpack.config.js ./
+#
+#COPY --from=install-backend-dependencies /var/www/justcode/vendor ./vendor
+#COPY --from=install-frontend-dependencies /var/www/justcode/node_modules ./node_modules
+#COPY src ./src
+#COPY assets ./assets
+#RUN echo 'NODE_ENV=production' >> .env
+#
+#RUN npm run build
 
 
 FROM dev as prod
 
 WORKDIR /var/www/justcode
 
-COPY . ./
+RUN git clone https://github.com/karol3883/justcode.git .
+
+#COPY . ./
 
 COPY --from=install-backend-dependencies /var/www/justcode/vendor ./vendor
-COPY --from=build-assets /app/public/build ./public/build
+#COPY --from=build-assets /app/public/build ./public/build
 
 RUN mkdir -p var/cache var/log var/cache/prod
 RUN chmod -R  777 var
 
-CMD php ./bin/console assets:install public && php ./bin/console --no-interaction doctrine:migrations:migrate && apache2-foreground
+#CMD php ./bin/console assets:install public && php ./bin/console --no-interaction doctrine:migrations:migrate && apache2-foreground
+#CMD php ./bin/console assets:install public
 
 FROM prod as migrations
 

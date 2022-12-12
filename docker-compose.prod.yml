@@ -1,21 +1,21 @@
 version: "3.4"
 
 services:
-  justcode:
-    image: registry.digitalocean.com/karol-container1/justcode_justcode:latest
+  justcode_prod:
+    image: registry.digitalocean.com/karol-container1/justcode_justcode:prod
 #    depends_on:
 #      - justcode-db
-#    container_name: justcode
-#    build:
-#      context: .
-#      dockerfile: docker/Dockerfile
-#      target: dev
+    container_name: justcode_prod
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+      target: prod
     restart: always
     ports:
-      - '80:80'
-    volumes:
-      - ./:/var/www/justcode
-      - ./docker/php/docker-php-ext-xdebug.ini:/usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+      - '8080:80'
+#    volumes:
+#      - ./:/var/www/justcode
+#      - ./docker/php/docker-php-ext-xdebug.ini:/usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
 #    tty: true
 #    privileged: true
 #    cap_add:
