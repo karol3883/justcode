@@ -11,6 +11,7 @@ trait NavigationTrait
             NavigationElementsEnum::HOMEPAGE => 'Strona głowna',
             NavigationElementsEnum::CONTACT => 'Kontakt',
             NavigationElementsEnum::OFFER => 'Oferta',
+            NavigationElementsEnum::ADMIN => 'Admin',
             default => throw new \Exception('Navigation element not exists')
         };
     }
