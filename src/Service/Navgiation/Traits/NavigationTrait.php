@@ -6,6 +6,7 @@ use App\Service\Navgiation\NavigationElementsEnum;
 
 trait NavigationTrait
 {
+
     public function getNavigationTitleByEnum(NavigationElementsEnum $navigationElementsEnum): string {
         return match ($navigationElementsEnum) {
             NavigationElementsEnum::HOMEPAGE => 'Strona głowna',
