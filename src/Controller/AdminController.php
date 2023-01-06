@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use Psr\Log\LoggerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -9,9 +10,15 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route('/admin', name: 'app_todo')]
 class AdminController extends AbstractController
 {
+//    public function __construct(LoggerInterface $logger)
+//    {
+////        $logger->warning('Test');
+//    }
+
     #[Route('', name: 'app_admin_index')]
     public function index(): Response
     {
+
         return $this->render('todo/index.html.twig', [
             'controller_name' => 'TodoController',
         ]);

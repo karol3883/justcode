@@ -106,6 +106,7 @@ COPY --from=install-backend-dependencies /var/www/justcode/vendor ./vendor
 RUN npm ci
 
 
+
 #FROM node:14 as build-assets
 #
 #WORKDIR /app

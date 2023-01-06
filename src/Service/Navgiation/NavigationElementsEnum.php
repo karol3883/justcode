@@ -7,7 +7,7 @@ enum NavigationElementsEnum: string
     case HOMEPAGE = '/';
     case CONTACT = '/contact';
     case OFFER = '/oferta';
-//    case ADMIN = '/admin';
+    case ADMIN = '/admin';
 
     public function localeUrl(string $locale): string
     {
