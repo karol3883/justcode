@@ -23,21 +23,15 @@ class NotificationCommand extends Command
 {
     protected static $defaultName = 'app:send-message';
 
-    private ?ObjectManager $objectManager = null;
-    private ?EntityManagerInterface $entityManager = null;
     public function __construct(
-        EntityManagerInterface $entityManager,
+        private EntityManagerInterface $entityManager,
         private ValidatorInterface $validator,
         private NotificationCounterServiceInterface $notificationCounterService,
-
         private NotificationCounterRepository $notificationCounterRepository,
 
         string $name = 'app:send-message'
     )
     {
-
-        $this->entityManager = $entityManager;
-//        $this->objectManager = $objectManager;
         parent::__construct($name);
     }
 
@@ -47,7 +41,6 @@ class NotificationCommand extends Command
     ): int
     {
         $notificationRepo = $this->entityManager->getRepository(Notification::class);
-        $notyf = $notificationRepo->find(3);
         $notifications = $notificationRepo->findAll();
 
         foreach ($notifications as $singleNotification) {
@@ -93,6 +86,7 @@ class NotificationCommand extends Command
     {
 
     }
+
     private function deleteData()
     {
 
