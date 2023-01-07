@@ -18,8 +18,7 @@ class AdminController extends AbstractController
     #[Route('', name: 'app_admin_index')]
     public function index(): Response
     {
-
-        return $this->render('todo/index.html.twig', [
+        return $this->render('admin/index.html.twig', [
             'controller_name' => 'TodoController',
         ]);
     }
