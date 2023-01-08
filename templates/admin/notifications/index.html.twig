@@ -1,0 +1,27 @@
+{% extends 'admin_base.html.twig' %} {% block title %}Skontaktuj się z nami!{% endblock %} {% block body %}
+
+
+    <div class="container px-6 mx-auto">
+        <article class="rounded-xl border border-gray-700 bg-gray-800 p-4">
+            <ul class="mt-4 space-y-2">
+                {% for notification_counter in notification_counters %}
+                    <a>
+                        <li>
+                            <a
+                                href="#"
+                                class="block h-full rounded-lg border border-gray-700 p-4 hover:bg-cyan-500"
+                            >
+                                <strong class="font-medium text-white"> {{  notification_counter.getNotification.getName }}</strong>
+
+                                <p class="mt-1 text-xs font-medium text-gray-300">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
+                                    consequuntur deleniti, unde ab ut in!
+                                </p>
+                            </a>
+                        </li>
+                    </a>
+                {% endfor %}
+            </ul>
+        </article>
+    </div>
+{% endblock %}
