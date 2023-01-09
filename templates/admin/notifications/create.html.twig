@@ -1,0 +1,67 @@
+{% extends 'admin_base.html.twig' %} {% block title %}Skontaktuj się z nami!{% endblock %} {% block body %}
+
+    <div class="container px-6 mx-auto">
+        <div class="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
+            <div class="mx-auto max-w-lg text-center">
+                <h1 class="text-2xl font-bold sm:text-3xl">Dodaj nowe powiadomienie</h1>
+
+                <p class="mt-4 text-gray-500">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Et libero nulla
+                    eaque error neque ipsa culpa autem, at itaque nostrum!
+                </p>
+            </div>
+
+            <form action="{{ path('app_todoapp_admin_notification_create_new') }}" class="mx-auto mt-8 mb-0 max-w-md space-y-4" method="post">
+                <div>
+                    <label for="email" class="sr-only">Email</label>
+
+                    <div class="relative">
+                        <input
+                            name="notification_name"
+                            type="text"
+                            class="w-full rounded-lg border-gray-200 p-4 pr-12 text-sm shadow-sm"
+                            placeholder="Nazwa powiadomienia"
+                        />
+
+                    </div>
+                </div>
+
+                <div>
+                    <label for="password" class="sr-only">Password</label>
+                    <div class="relative">
+                        <input
+                            name="notification_number_of_repeats"
+                            type="text"
+                            class="w-full rounded-lg border-gray-200 p-4 pr-12 text-sm shadow-sm"
+                            placeholder="Ile razy wysłać?"
+                        />
+
+                    </div>
+                </div>
+
+                <div class="flex items-center justify-between">
+                    <p class="text-sm text-gray-500">
+                        No account?
+                        <a class="underline" href="">Sign up</a>
+                    </p>
+
+
+                    <button type="submit"  id="back-top" class="inline-block rounded-full bg-cyan-600 p-2 text-white shadow transition hover:bg-cyan-500 sm:p-3 lg:p-4">
+                        Dodaj powiadomienie
+                    </button>
+                    <button
+                            type="submit"
+                            class="ml-3 inline-block rounded-lg bg-blue-500 px-5 py-3 text-sm font-medium text-white"
+                    >
+                        Sign in
+                    </button>
+                </div>
+            </form>
+        </div>
+
+
+{#        <a href="{{ path('app_todoapp_admin_notification_create_new') }}" id="back-top" class="inline-block rounded-full bg-cyan-600 p-2 text-white shadow transition hover:bg-cyan-500 sm:p-3 lg:p-4">#}
+{#             Dodaj powiadomienie#}
+{#        </a>#}
+    </div>
+{% endblock %}

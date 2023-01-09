@@ -1,0 +1,6 @@
+parameters:
+  app_locales: [en, pl]
+
+twig:
+  globals:
+    locales: %app_locales%

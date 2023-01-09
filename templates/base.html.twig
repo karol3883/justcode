@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="UTF-8">
+{#        <meta name="robots" content="index, follow, all">#}
+
+        {{ render(controller( 'App\\Controller\\MetaTagsController::index', {path_info: app.request.getPathInfo})) }}
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="icon" href="/assets/favicon.ico">
+{#        <link#}
+{#            href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css"#}
+{#            rel="stylesheet"#}
+{#        />#}
+{#        <script src="https://cdn.tailwindcss.com"></script>#}
+        <link href="/assets/output.css" rel="stylesheet" >
+{#        <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet"/>#}
+
+    </head>
+    <body>
+        {{ render(controller( 'App\\Controller\\NavigationController::index', {pathInfo: app.request.getPathInfo})) }}
+{#        {% include 'partials/navbar.html.twig' %}#}
+        {% include 'partials/messages.html.twig' %}
+        {% include 'partials/banner.html.twig' %}
+{#        {% include 'partials/content.html.twig' %}#}
+        {% block body %}{% endblock %}
+        {% include 'partials/footer.html.twig' %}
+    </body>
+</html>
